@@ -151,7 +151,7 @@ ggplotly(Depth_fig)
 #| tbl-cap: "Mean sediment scores for October 2025 sampling effort. Scores are objectively assessed  as follows: 1=Shelly sand, 2=Sand, 3=Muddy sand, 4=Mud, 5=Oysters."
 
 
-sed <- read_csv("C:/Users/gmang/Documents/Gman/Ecology/AMIkids/DataWranglingAMIkids/202510-SeagrassDataAMIkids.csv", col_select = c(Day, SedimentType))
+sed <- read_csv("C:/Users/gmang/Documents/Gman/Ecology/AMIkids/DataWranglingAMIkids/202510-SeagrassDataAMIkidsConcatated.csv", col_select = c(Day, SedimentType))
 
 mean_sed <- sed %>%
     group_by(Day) %>%
