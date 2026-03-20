@@ -108,7 +108,7 @@ Each team completed 2-4 quadrats during the allotted time (approximately 1 hour)
 #| fig-cap: "Secchi depths measured during October 2025."
 
 # create the secchi depth bar chart
-secchi <- read.csv("C:/Users/gmang/Documents/Gman/Ecology/AMIkids/DataWranglingAMIkids/202510-AncillaryData.csv")
+secchi <- read.csv("https://raw.githubusercontent.com/GmangroveBari/SeagrassOctober2025/refs/heads/main/202510-AncillaryData.csv")
 
 
 #data summary and graph: day x secchi
