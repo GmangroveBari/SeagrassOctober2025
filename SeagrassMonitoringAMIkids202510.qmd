@@ -1,0 +1,344 @@
+---
+title: "Report: October 2025 Seagrass Monitoring Training
+Prepared for: AMIkids"
+author: "Gary E. Raulerson, Ph.D."
+format: 
+  html:
+    embed-resources: true
+    fig-num: true
+    tab-num: true
+editor: visual
+execute: 
+  echo: false
+  warning: false
+---
+
+```{r}
+#| label: Library
+
+library(forcats)
+library(kableExtra)
+library(ggplot2)
+library(jsonlite)
+library(leaflet)
+library(lubridate)
+library(plotly)
+library(tibble)
+library(tidyverse)
+library(gtsummary)
+library(dplyr)
+
+```
+
+**Abstract**
+
+Seagrasses are an extremely important habitat in Tampa Bay. AMIkids students, volunteers, and staff initiated a project to restore and monitor seagrass. Five days of training were held in October, 2025, to familiarize multiple potential user groups with standardized monitoring protocols to aid the project going forward. Assessments included species, Braun-Blanquet coverage, appearance, epiphyte density, blade length, and shoot counts. Ancillary data, including Secchi depth, sampling depth, and sediment type, were also measured. This learning experience will assist future efforts and streamline the process for enabling others to understand the protocol.
+
+**Introduction**
+
+Seagrasses are an integral part of the Tampa Bay ecosystem, and their regeneration has been a focal point for multiple organizations within the region (e.g., the Southwest Florida Water Management District, Tampa Bay Estuary Program, and Tampa Bay Aquatic Preserves). Improvement of water quality is the primary driver for regeneration of seagrass beds that were lost in the 20th century, but physical restoration in coordination with rigorous ecological monitoring and research can positively impact localized areas that have not recovered due to other limiting factors. 
+
+Seagrasses provide critical ecosystem services within and beyond Tampa Bay. They are an extremely important fish nursery, provide habitat (including food and shelter) for hundreds of marine species, decrease coastal erosion, and improve water quality by sequestering nutrients and trapping sediment.
+
+From the 1950s to the 1980s, Tampa Bay experienced critical seagrass loss (@fig-SeagrassCover). This loss was due to changes in water quality from increased wastewater, increased stormwater, and declining circulation (primarily in Old Tampa Bay). Dredge and fill activities also destroyed seagrass beds in many locations.
+
+However, after the passage of the Grizzle-Figg Act of 1978 that required advanced wastewater treatment from local municipalities, seagrass habitats began to recover. This recovery, primarily from water quality improvements, was also aided by some physical restoration efforts that would primarily “jump start” areas lacking seagrass, as well as the filling of dredged holes to grade with clean sediments
+
+![Historical seagrass coverage in Tampa Bay.](https://raw.githubusercontent.com/tbep-tech/State-of-the-Bay/master/figures/seagrasscov.png){#fig-SeagrassCover}
+
+AMIkids received grants from the Community Foundation of Tampa Bay and others to undertake seagrass restoration efforts in concert with its educational opportunities. The stated goal of the CFTB grant is to “Enhance seagrass restoration efforts to improve biodiversity, water quality, and ecosystem resilience in Tampa Bay’s coastal waters.”
+
+Long-term monitoring should be used to understand localized changes in seagrasses due to restoration efforts, including volunteer planting. This component of the project was an initial attempt to teach AMIkids students and volunteers how to assess seagrass habitat following well-established methods. Group training is critical to ensure as much as possible that results are comparable between different groups of observers. Therefore, AMIkids students and representatives from sponsoring organizations were introduced to the concepts of [seagrass monitoring based on protocols](https://tampabay.wateratlas.usf.edu/seagrass-monitoring/) created by the Tampa Bay Estuary Program (2020) and built on a [seagrass restoration and education model](https://amikids.org/seagrass-restoration/#Guide-Download) created by AMIkids (2025). 
+
+The project integrated Science, Technology, Engineering, and Mathematics (STEM) learning within the project to provide educational experiences to the AMIkids user group. The students gain knowledge on various topics including seagrass ecology and field monitoring.
+
+**Methods and Materials**
+
+[Instructional workshops](https://docs.google.com/document/d/1lNSAIABPAdRw56UiYpi_fDJnMoSk4MEQW6SEBqg8sh4/edit?usp=sharing) were held daily from October 20-24, 2025. The classroom component occurred at the AMIkids Boatyard in northeast St. Petersburg, and the field component was held in seagrass flats approximately 2km southeast, on the eastern shore of Weedon Island County Park (@fig-map).
+
+```{r}
+#| label: fig-map
+#| fig-cap: "Map showing October 2025 sampling area and proximity to AMIkids marina."
+#| fig-align: "center"
+
+
+df <- data.frame(
+  lng = c(-82.596, -82.614),
+  lat = c(27.854, 27.87),
+  site = c("Oct. 2025 Sampling Area", "AMIkids Marina")
+)
+
+# Create the map using the data frame
+
+df %>%
+  leaflet() %>%
+  addTiles() %>%
+    addMarkers(
+    lng = ~lng,
+    lat = ~lat,
+    popup = ~site, # Use the 'site' column for popups
+  ) %>%
+  setView(lng = -82.605, lat = 27.866, zoom = 14)
+
+```
+
+A combination of approximately 10-30 students and adults attended each of the workshops. The students were from AMIkids programs in Hillsborough, Manatee, and Pinellas Counties. Adults were from several sponsoring companies, including Enterprise, Orlando Health, Palermo Real Estate Professionals, and Smith & Associates Real Estate, as well as representatives from regional agencies, AMIkids staff, and AMIkids volunteers. Instructors included AMIkids staff and a contractor.
+
+An instructional slide show was presented and gave background information on AMIkids, boat safety, and seagrass ecology. Transport was provided on the AMIkids flagship vessel, “Orlando’s Rose”, a 65-foot long landing craft jet-propelled boat.
+
+The seagrass assessment followed the quadrat protocol conducted by the Tampa Bay Estuary Program and its partners for annual transect monitoring ([TBEP 2020](https://tampabay.wateratlas.usf.edu/seagrass-monitoring/)). Before the Orlando’s Rose beached to disembark passengers, a Secchi disc measurement was taken at the bow of the ship. 
+
+Upon debarkation, a group training of the [monitoring protocol](https://docs.google.com/document/d/1lNSAIABPAdRw56UiYpi_fDJnMoSk4MEQW6SEBqg8sh4/edit?usp=sharing) was provided. This included:
+
+-   Depth measurement
+-   Seagrass species identification
+-   Braun-Blanquet coverage estimation
+-   General appearance of seagrass
+-   Assessment of epiphytes
+-   Assessment of sediment
+
+The group was then divided into 2-4 teams that conducted quadrat assessments at a series of pre-established quadrats, or in one case (October 22, 2025), along a 100m transect. The quadrats were placed each day with no intention for repeated observations.
+
+**Results**
+
+Each team completed 2-4 quadrats during the allotted time (approximately 1 hour). A Secchi reading, measured in over 3m water, ranged from 170-240cm and averaged 196cm over the 5-day period (@fig-Secchi). Depth of quadrats ranged from 23-118cm, with a mean depth of 60.6cm (@fig-depth) with the mean daily depth decreasing over the week. Sediment generally varied from sand to muddy sand, although instances of shelly sand and mud were observed (@tbl-sed).
+
+```{r}
+#| label: fig-Secchi
+#| fig-cap: "Secchi depths measured during October 2025."
+
+# create the secchi depth bar chart
+secchi <- read.csv("C:/Users/gmang/Documents/Gman/Ecology/AMIkids/DataWranglingAMIkids/202510-AncillaryData.csv")
+
+
+#data summary and graph: day x secchi
+  mean_secchi <- secchi %>% group_by(Date) %>% summarise(AvgSec = mean(Secchi)) 
+
+# make a ggplot
+secchi_fig <- ggplot(mean_secchi, aes(x = Date, y = AvgSec)) + geom_bar(stat = 'identity', position = 'dodge') + geom_col(fill = "steelblue")
+
+# convert to plotly
+ggplotly(secchi_fig)
+
+
+```
+
+```{r}
+#| label: fig-depth
+#| fig-cap: "Mean depths for October 2025 sampling events."
+#| fig-align: "center"
+
+
+# create the avg depth bar chart
+depth <- read.csv("C:/Users/gmang/Documents/Gman/Ecology/AMIkids/DataWranglingAMIkids/202510-SeagrassDataAMIkidsConcatated.csv")
+
+
+#data summary and graph: day, species, and abundance
+  Mean_Depth <- depth %>%
+    group_by(Day) %>%
+    summarise (AvgD = mean(Depth))
+
+# make a ggplot
+Depth_fig <- ggplot(Mean_Depth, aes(x = Day, y = AvgD)) + 
+  geom_bar(stat = 'identity', position = 'dodge') + geom_col(fill = "steelblue")
+
+# convert to plotly
+ggplotly(Depth_fig)
+```
+
+```{r}
+#| label: tbl-sed
+#| tbl-cap: "Mean sediment scores for October 2025 sampling effort. Scores are objectively assessed  as follows: 1=Shelly sand, 2=Sand, 3=Muddy sand, 4=Mud, 5=Oysters."
+
+
+sed <- read_csv("C:/Users/gmang/Documents/Gman/Ecology/AMIkids/DataWranglingAMIkids/202510-SeagrassDataAMIkids.csv", col_select = c(Day, SedimentType))
+
+mean_sed <- sed %>%
+    group_by(Day) %>%
+    summarise('Sediment Score' = mean(SedimentType))
+
+# Generate a markdown table
+knitr::kable(mean_sed, format = "html", table.attr = "style='width:30%;'")
+```
+
+Braun-Blanquet abundance varied both daily and within each day (@fig-BB). All three common seagrass species were recorded each day, with the exception that Turtle grass was not recorded on 10/21/25. Manatee grass (*Syringodium testudinum*) had the highest overall abundance of the three species (@tbl-means).
+
+```{r}
+#| label: fig-BB
+#| fig-cap: "Braun-Blanquet Coverage at Weedon Island in October 2025."
+
+Seagrass1 <- read.csv("C:/Users/gmang/Documents/Gman/Ecology/AMIkids/DataWranglingAMIkids/202510-SeagrassDataAMIkidsConcatated.csv")
+
+#data summary and graph: day, species, and abundance
+  mean_AbApp <- Seagrass1 %>%
+    group_by(Day, Species) %>%
+    summarise(AvgAbu = mean(Abundance), AvgApp = mean(Appearance)) 
+
+#removing empty rows - no SAV observed  
+  NoZeroAb <- mean_AbApp[apply(mean_AbApp!=0, 1, all),] %>% 
+    drop_na(Day, Species, AvgAbu)
+
+#plotting abundance data in grouped bar chart
+NoZeroAb %>%
+  plot_ly(x = ~Day, y = ~AvgAbu, color = ~Species) %>%
+  add_bars() %>%
+  layout(barmode = "group",  xaxis = list(title = "Day in October 2025", showgrid=T),
+         yaxis = list(title = "Braun-Blanquet Coverage"))
+
+```
+
+Overall general appearance (@tbl-means), based on characteristics such as the amount of necrotic leaf material and broken edges, averaged between a score of 2 (good) and fair (3) for all species.
+
+```{r}
+#| label: tbl-means
+#| tbl-cap: "Overall averages for several different seagrass metrics assessed from Oct. 20-25, 2025."
+
+Table2a <- read.csv("C:/Users/gmang/Documents/Gman/Ecology/AMIkids/DataWranglingAMIkids/202510-SeagrassDataAMIkidsConcatated.csv")
+
+# Create a custom summary table
+
+summary_table <- Table2a %>%
+  group_by(Species) %>%
+  summarise(
+    n = n(), # Number of observations
+    Appearance = mean(Appearance, na.rm = TRUE),
+    EpiphtyDensity = mean(EpiphyteDensity, na.rm = TRUE),
+    ShootDensity = mean(ShtDen, na.rm = TRUE),
+    BladeLength = mean(AvgBld, na.rm = TRUE)
+)
+# rename columns 4-6
+
+colnames(summary_table)[4] <- "Epiphyte Density"
+colnames(summary_table)[5] <- "Shoot Density"
+colnames(summary_table)[6] <- "Blade Length"
+
+# Generate a markdown table
+knitr::kable(head(summary_table), digits = 1, table.attr = "style='width:25%;'")
+
+```
+
+Estimates of epiphyte coverage varied widely over the week (@fig-epiphyte) but overall means were similar for all three species (@tbl-means).
+
+```{r}
+#| label: fig-epiphyte
+#| fig-cap: "Mean epiphyte density at Weedon Island in October 2025."
+
+
+Epiphyte <- read.csv("C:/Users/gmang/Documents/Gman/Ecology/AMIkids/DataWranglingAMIkids/202510-SeagrassDataAMIkidsConcatated.csv")
+
+#plotting epiphyte data in grouped bar chart
+#data summary and graph: day, species, and abundance
+  Mean_Epi <- Epiphyte %>%
+    group_by(Day, Species) %>%
+    summarise(AvgEpi = mean(EpiphyteDensity))
+
+Mean_Epi %>%
+  plot_ly(x = ~Day, y = ~AvgEpi, color = ~Species) %>%
+  add_bars() %>%
+  layout(barmode = "group", xaxis = list(title = "Day in October 2025", showgrid=T),
+         yaxis = list(title = "Epiphyte density, graded from 1 (light) to 5 (heavy)"))
+
+```
+
+Blade length measurements varied from a one-day mean of 10.3cm for Shoal grass (*Halodule wrightii*) on 10/22/25 to a mean of 34.1cm for Turtle grass on 10/24/25  (@fig-bldlen). Overall, Turtle grass and Manatee grass were similar in average blade length (30.0cm and 28.3cm, respectively), while Shoal grass was shorter (mean of 19.9cm)(@tbl-means).
+
+```{r}
+#| label: fig-bldlen
+#| fig-cap: "Mean blade lenghts at Weedon Island in October 2025."
+
+Epiphyte %>%
+  plot_ly(x = ~Day, y = ~AvgBld, color = ~Species) %>%
+  add_bars() %>%
+  layout(barmode = "group",  xaxis = list(title = "Day in October 2025", showgrid=T),
+         yaxis = list(title = "Blade length (cm)"))
+
+
+```
+
+Shoot counts were not done on the first day (10/20/2025). Shoot counts varied widely by day (@fig-shoot) and species (@tbl-means). Shoot counts were lower early in the week, and Manatee grass was estimated to have the highest shoot densities.
+
+```{r}
+#| label: fig-shoot
+#| fig-cap: "Mean shoot counts at Weedon Island in October 2025."
+
+
+Epiphyte %>%
+  plot_ly(x = ~Day, y = ~ShtDen, color = ~Species) %>%
+  add_bars() %>%
+  layout(barmode = "group",  xaxis = list(title = "Day in October 2025", showgrid=T),
+         yaxis = list(title = "Shoot density (#/m2)"))
+
+
+```
+
+Comments provided with the data included observations of puffer fish, sponges, a horseshoe crab, a hermit crab, and shells.
+
+**Discussion**
+
+Initial comments from students and volunteers indicate that this was a good experience, providing a new learning opportunity for the attendees. Some were excited about exploring the shallow water for the first time, and others were interested in learning more about the bay that they work and live around. Many of the people grasped the different procedures very quickly, and seemed pleased to be “scientists for a day” (visiting from AMIkids sponsors) or “scientists in the making” (the students themselves). One interesting note was that according to NOAA tide charts, tides would be lower going through the week, and this change was reflected in the data, which showed a steady decline in average depth over the 5-day period (Fig. 4).
+
+There are several simple adjustments that can be made to the overall protocol to improve the experience and data resulting from the educational workshops. These include:
+
+-   Ensuring that separate lines are used for different seagrass species within a single plot;
+
+-   Providing the square size for short shoot analysis on the data sheet;
+
+-   Identification of a method to allow the secchi disc to sink straight down
+
+-   Ensuring that team composition and team names are clearly identified and used
+
+-   Standardization of seagrass species abbreviations (Tu=Turtle, Mn=Manatee, Sh=Shoal)
+
+**Future Project Components**
+
+The next major milestone established for this project is planting of seagrass in March 2026. However, multiple steps are necessary to successfully implement that event:
+
+-   Continue teaching seagrass ecology & monitoring to youth in AMI-kids and adults from contributing companies;
+
+-   Identification of AMIkids volunteers to assist long-term with the ongoing work;
+
+-   Identification of appropriate partners;
+
+-   Identification of locations in Tampa Bay that are conducive to seagrass restoration efforts;
+
+-   Permitting of those locations (unless permits have been received by other partnering entities);
+
+-   Identification of locations to acquire donor plants for installation, such as grow ponds or dredging operations;
+
+-   Creation and implementation of a monitoring plan for the restoration areas, including:
+
+    -   Introductory visits to all potential restoration sites;
+
+    -   A Before, After, Control, and Impact (BACI) analysis to ascertain the success rate
+
+    -   Identification of random, fixed, or transect plots to provide the most appropriate information;
+
+    -   Building a long-term monitoring team (composed of volunteers and professionals) that can document the changes in seagrass metrics for the restoration efforts;
+
+    -   Reporting to partners and permit agencies;
+
+-   Creation of a best practices for manual planting of SAV by volunteers;
+
+-   Partnerships will be extremely important in this process, and should include but are not limited to:
+
+    -   Creation of partnerships within the region to complement the work;
+
+    -   Coordination with technical partners;
+
+    -   Provide technical assistance for grant applications to appropriate agencies to upscale seagrass restoration work;
+
+    -   Support on-site visits, including field work with contributing organizations and AMIkids students.
+
+Additionally, there is long-term potential for project expansion through use of the AMIkids network of 50 locations in 6 states. There should be opportunities for all programs to restore and assess regional habitats, such as oysters, artificial reefs, salt marsh, freshwater wetlands, uplands, and exotic plants.
+
+\newpage
+
+**References**
+
+AMIkids. 2025. Growing the Future: A Youth-Led Seagrass Restoration Model. <https://amikids.org/seagrass-restoration/#Guide-Download>. Accessed 9/30/2025.
+
+Koerner, L., M. Chadwick, and E. Tebbs. 2022. Mapping invasive strawberry guava (Psidium cattleianum) in tropical forests of Mauritius with Sentinel-2 and machine learning. International Journal of Remote Sensing. 43. 841-872. <https://www.tandfonline.com/doi/full/10.1080/01431161.2021.2020364>. Accessed 9/30/2025.
+
+Tampa Bay Estuary Program. 2020. Seagrass Transect Training: Protocols. <https://youtu.be/jfnVlIjJ-o4?si=JvNaxSU25aMYHtF->. Accessed 9/30/2025.
+
+Tampa Bay Estuary Program. 2025. 2025 Seagrass and Macroalgae of Tampa Bay. <https://drive.google.com/file/d/1naZpND_Ur90abqND-ZhZ_fJtBBiuetjt/view?usp=drive_link>. Accessed 9/30/2025.
