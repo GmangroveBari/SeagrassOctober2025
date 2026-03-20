@@ -1,6 +1,6 @@
 ---
-title: "Report: October 2025 Seagrass Monitoring Training
-Prepared for: AMIkids"
+title: "Report: October 2025 Seagrass Monitoring Training"
+subtitle: "Prepared for: AMIkids"
 author: "Gary E. Raulerson, Ph.D."
 format: 
   html:
@@ -36,7 +36,7 @@ Seagrasses are an extremely important habitat in Tampa Bay. AMIkids students, vo
 
 **Introduction**
 
-Seagrasses are an integral part of the Tampa Bay ecosystem, and their regeneration has been a focal point for multiple organizations within the region (e.g., the Southwest Florida Water Management District, Tampa Bay Estuary Program, and Tampa Bay Aquatic Preserves). Improvement of water quality is the primary driver for regeneration of seagrass beds that were lost in the 20th century, but physical restoration in coordination with rigorous ecological monitoring and research can positively impact localized areas that have not recovered due to other limiting factors. 
+Seagrasses are an integral part of the Tampa Bay ecosystem, and their regeneration has been a focal point for multiple organizations within the region (e.g., the Southwest Florida Water Management District, Tampa Bay Estuary Program, and Tampa Bay Aquatic Preserves). Improvement of water quality is the primary driver for regeneration of seagrass beds that were lost in the 20th century, but physical restoration in coordination with rigorous ecological monitoring and research can positively impact localized areas that have not recovered due to other limiting factors.
 
 Seagrasses provide critical ecosystem services within and beyond Tampa Bay. They are an extremely important fish nursery, provide habitat (including food and shelter) for hundreds of marine species, decrease coastal erosion, and improve water quality by sequestering nutrients and trapping sediment.
 
@@ -48,7 +48,7 @@ However, after the passage of the Grizzle-Figg Act of 1978 that required advance
 
 AMIkids received grants from the Community Foundation of Tampa Bay and others to undertake seagrass restoration efforts in concert with its educational opportunities. The stated goal of the CFTB grant is to “Enhance seagrass restoration efforts to improve biodiversity, water quality, and ecosystem resilience in Tampa Bay’s coastal waters.”
 
-Long-term monitoring should be used to understand localized changes in seagrasses due to restoration efforts, including volunteer planting. This component of the project was an initial attempt to teach AMIkids students and volunteers how to assess seagrass habitat following well-established methods. Group training is critical to ensure as much as possible that results are comparable between different groups of observers. Therefore, AMIkids students and representatives from sponsoring organizations were introduced to the concepts of [seagrass monitoring based on protocols](https://tampabay.wateratlas.usf.edu/seagrass-monitoring/) created by the Tampa Bay Estuary Program (2020) and built on a [seagrass restoration and education model](https://amikids.org/seagrass-restoration/#Guide-Download) created by AMIkids (2025). 
+Long-term monitoring should be used to understand localized changes in seagrasses due to restoration efforts, including volunteer planting. This component of the project was an initial attempt to teach AMIkids students and volunteers how to assess seagrass habitat following well-established methods. Group training is critical to ensure as much as possible that results are comparable between different groups of observers. Therefore, AMIkids students and representatives from sponsoring organizations were introduced to the concepts of [seagrass monitoring based on protocols](https://tampabay.wateratlas.usf.edu/seagrass-monitoring/) created by the Tampa Bay Estuary Program (2020) and built on a [seagrass restoration and education model](https://amikids.org/seagrass-restoration/#Guide-Download) created by AMIkids (2025).
 
 The project integrated Science, Technology, Engineering, and Mathematics (STEM) learning within the project to provide educational experiences to the AMIkids user group. The students gain knowledge on various topics including seagrass ecology and field monitoring.
 
@@ -86,7 +86,7 @@ A combination of approximately 10-30 students and adults attended each of the wo
 
 An instructional slide show was presented and gave background information on AMIkids, boat safety, and seagrass ecology. Transport was provided on the AMIkids flagship vessel, “Orlando’s Rose”, a 65-foot long landing craft jet-propelled boat.
 
-The seagrass assessment followed the quadrat protocol conducted by the Tampa Bay Estuary Program and its partners for annual transect monitoring ([TBEP 2020](https://tampabay.wateratlas.usf.edu/seagrass-monitoring/)). Before the Orlando’s Rose beached to disembark passengers, a Secchi disc measurement was taken at the bow of the ship. 
+The seagrass assessment followed the quadrat protocol conducted by the Tampa Bay Estuary Program and its partners for annual transect monitoring ([TBEP 2020](https://tampabay.wateratlas.usf.edu/seagrass-monitoring/)). Before the Orlando’s Rose beached to disembark passengers, a Secchi disc measurement was taken at the bow of the ship.
 
 Upon debarkation, a group training of the [monitoring protocol](https://docs.google.com/document/d/1lNSAIABPAdRw56UiYpi_fDJnMoSk4MEQW6SEBqg8sh4/edit?usp=sharing) was provided. This included:
 
@@ -240,7 +240,7 @@ Mean_Epi %>%
 
 ```
 
-Blade length measurements varied from a one-day mean of 10.3cm for Shoal grass (*Halodule wrightii*) on 10/22/25 to a mean of 34.1cm for Turtle grass on 10/24/25  (@fig-bldlen). Overall, Turtle grass and Manatee grass were similar in average blade length (30.0cm and 28.3cm, respectively), while Shoal grass was shorter (mean of 19.9cm)(@tbl-means).
+Blade length measurements varied from a one-day mean of 10.3cm for Shoal grass (*Halodule wrightii*) on 10/22/25 to a mean of 34.1cm for Turtle grass on 10/24/25 (@fig-bldlen). Overall, Turtle grass and Manatee grass were similar in average blade length (30.0cm and 28.3cm, respectively), while Shoal grass was shorter (mean of 19.9cm)(@tbl-means).
 
 ```{r}
 #| label: fig-bldlen
