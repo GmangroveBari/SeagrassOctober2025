@@ -1,5 +1,6 @@
 project:
   title: "SeagrassMonitoringAMIkids202510"
+  output-dir: docs
 
 editor: visual
 

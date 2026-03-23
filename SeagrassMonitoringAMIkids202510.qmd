@@ -4,12 +4,12 @@ subtitle: "Prepared for: AMIkids"
 author: "Gary E. Raulerson, Ph.D."
 project:
   type: website
-  output-dir: docs # This tells Quarto to put the output in a 'docs' folder
-format: 
+format:
   html:
     embed-resources: true
     fig-num: true
     tab-num: true
+    output-file: index.html
 editor: visual
 execute: 
   echo: false
