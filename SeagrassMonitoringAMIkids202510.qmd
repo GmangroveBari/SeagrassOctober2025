@@ -14,6 +14,12 @@ editor: visual
 execute: 
   echo: false
   warning: false
+  
+#left alignment of tables
+include-before-body:
+  text: |
+    \usepackage{caption}
+    \captionsetup{justification=raggedright,singlelinecheck=false}
 ---
 
 ```{r}
@@ -160,8 +166,11 @@ mean_sed <- sed %>%
     group_by(Day) %>%
     summarise('Sediment Score' = mean(SedimentType))
 
+# Remove empty row
+mean_sed <- mean_sed[-c(1), ]
+
 # Generate a markdown table
-knitr::kable(mean_sed, format = "html", align = "cc")
+knitr::kable(mean_sed, format = "html", align = "cc", digits = 1)
 
 ```
 
@@ -195,7 +204,7 @@ Overall general appearance (@tbl-means), based on characteristics such as the am
 
 ```{r}
 #| label: tbl-means
-#| tbl-cap: "Overall averages for several different seagrass metrics assessed from Oct. 20-25, 2025."
+#| tbl-cap: "Overall averages for several different seagrass metrics assessed from Oct. 20-25, 2025. Appearance and Epiphyte Density were scored on an objective scale from 1 (Excellent/None) to 5 (Poor/Heavy)."
 
 Table2a <- read.csv("https://raw.githubusercontent.com/GmangroveBari/SeagrassOctober2025/refs/heads/main/202510-SeagrassDataAMIkidsConcatated.csv")
 
@@ -210,6 +219,13 @@ summary_table <- Table2a %>%
     ShootDensity = mean(ShtDen, na.rm = TRUE),
     BladeLength = mean(AvgBld, na.rm = TRUE)
 )
+
+
+# Remove rows 1, 2, and 4
+summary_table <- summary_table %>%
+  filter(!row_number() %in% c(4))
+
+
 # rename columns 4-6
 
 colnames(summary_table)[4] <- "Epiphyte Density"
@@ -217,7 +233,7 @@ colnames(summary_table)[5] <- "Shoots/m2"
 colnames(summary_table)[6] <- "Blade Length (cm)"
 
 # Generate a markdown table
-knitr::kable(head(summary_table), digits = 1,  align = "lccccc",)
+knitr::kable(head(summary_table), digits = 1,  align = "lccccc")
 
 ```
 
