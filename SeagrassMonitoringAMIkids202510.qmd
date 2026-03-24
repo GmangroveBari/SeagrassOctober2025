@@ -161,7 +161,8 @@ mean_sed <- sed %>%
     summarise('Sediment Score' = mean(SedimentType))
 
 # Generate a markdown table
-knitr::kable(mean_sed, format = "html", table.attr = "style='width:30%;'")
+knitr::kable(mean_sed, format = "html", align = "cc")
+
 ```
 
 Braun-Blanquet abundance varied both daily and within each day (@fig-BB). All three common seagrass species were recorded each day, with the exception that Turtle grass was not recorded on 10/21/25. Manatee grass (*Syringodium testudinum*) had the highest overall abundance of the three species (@tbl-means).
@@ -212,11 +213,11 @@ summary_table <- Table2a %>%
 # rename columns 4-6
 
 colnames(summary_table)[4] <- "Epiphyte Density"
-colnames(summary_table)[5] <- "Shoot Density"
-colnames(summary_table)[6] <- "Blade Length"
+colnames(summary_table)[5] <- "Shoots/m2"
+colnames(summary_table)[6] <- "Blade Length (cm)"
 
 # Generate a markdown table
-knitr::kable(head(summary_table), digits = 1, table.attr = "style='width:25%;'")
+knitr::kable(head(summary_table), digits = 1,  align = "lccccc",)
 
 ```
 
