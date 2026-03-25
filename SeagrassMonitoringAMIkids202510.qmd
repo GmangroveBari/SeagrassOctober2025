@@ -149,7 +149,7 @@ depth <- read.csv("https://raw.githubusercontent.com/GmangroveBari/SeagrassOctob
 
 # make a ggplot
 Depth_fig <- ggplot(Mean_Depth, aes(x = Day, y = AvgD)) + 
-  geom_bar(stat = 'identity', position = 'dodge') + geom_col(fill = "steelblue")
+  geom_bar(stat = 'identity', position = 'dodge') + geom_col(fill = "ORANGE")
 
 # convert to plotly
 ggplotly(Depth_fig)
